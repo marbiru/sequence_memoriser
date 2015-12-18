@@ -2,22 +2,33 @@ demo_list = ["He would declare and could himself believe", "that the birds there
 
 from random import randint
 
-random_number = randint(0,len(demo_list) - 1)
+def new_line():
 
-try:
-	pre_line = demo_list[random_number - 1]
-except IndexError:
-	pre_line ="START OF LIST"
+	random_number = randint(0,len(demo_list) - 1)
 
-try:
-	post_line = demo_list[random_number + 1]
-except IndexError:
-	post_line ="END OF LIST"
+	try:
+		pre_line = demo_list[random_number - 1]
+	except IndexError:
+		pre_line ="START OF LIST"
 
-blank_filler = "-" * len((demo_list[random_number]))
+	try:
+		post_line = demo_list[random_number + 1]
+	except IndexError:
+		post_line ="END OF LIST"
 
-print "\n"
-print pre_line
-print blank_filler
-print post_line
-print "\n"
+	blank_filler = "-" * len((demo_list[random_number]))
+
+	print "\n"
+	print pre_line
+	print blank_filler
+	print post_line
+	print "\n"
+
+	get_another = raw_input("another? press 'y' for yes or 'q' to quit \n")
+
+	if get_another == "y":
+		new_line()
+	elif get_another == "q":
+		quit()
+
+new_line()
