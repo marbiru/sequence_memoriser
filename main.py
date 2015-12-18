@@ -1,3 +1,5 @@
+print "\nWelcome to the list-memoriser thingy. Look at the 'before' and 'after' line and try to remember what the blanked-out line should be. Then, when you're ready, move on to another line from the text."
+
 demo_list = ["He would declare and could himself believe", "that the birds there in all the garden round", "from having heard the daylong voice of Eve", "had added to their own an oversound", "her tone of meaning but without the words", "admittedly an eloquence so soft", "could only have had an influence on birds", "when call or laughter carried it aloft"]
 
 from random import randint
