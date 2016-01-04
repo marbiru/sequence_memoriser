@@ -1,36 +1,145 @@
-print "\nWelcome to the list-memoriser thingy. Look at the 'before' and 'after' line and try to remember what the blanked-out line should be. Then, when you're ready, move on to another line from the text."
+print "\n Welcome to the Major System program. This gives you an image for any number \n"
 
-demo_list = ["He would declare and could himself believe", "that the birds there in all the garden round", "from having heard the daylong voice of Eve", "had added to their own an oversound", "her tone of meaning but without the words", "admittedly an eloquence so soft", "could only have had an influence on birds", "when call or laughter carried it aloft"]
+single_digit_peg_list = [
+"hose",
+"hat",
+"hen",
+"home",
+"arrow",
+"whale",
+"shoe",
+"cow",
+"hoof",
+"pie"
+]
 
-from random import randint
+pegs_list = [
+"sauce",
+"seed",
+"sun",
+"sumo",
+"sierra",
+"soil",
+"sachet",
+"sky",
+"sofa",
+"soap",
+"daisy",
+"tattoo",
+"tuna",
+"dome",
+"diary",
+"tail",
+"dish",
+"dog",
+"dove",
+"tuba",
+"nose",
+"net",
+"onion",
+"enemy",
+"winery",
+"nail",
+"nacho",
+"neck",
+"knife",
+"honeybee",
+"mouse",
+"meadow",
+"moon",
+"mummy",
+"hammer",
+"mole",
+"match",
+"mug",
+"movie",
+"map",
+"rice",
+"road",
+"rain",
+"rum",
+"warrior",
+"railway",
+"archway",
+"rag",
+"roof",
+"rope",
+"louse",
+"lady",
+"lion",
+"lime",
+"lorry",
+"lily",
+"leech",
+"leg",
+"lava",
+"lip",
+"cheese",
+"cheetah",
+"chin",
+"gem",
+"shrew",
+"chilli",
+"cha-cha",
+"chick",
+"chef",
+"jeep",
+"goose",
+"cat",
+"coin",
+"game",
+"crow",
+"clay",
+"cage",
+"cake",
+"cave",
+"cube",
+"vase",
+"video",
+"fan",
+"foam",
+"fairy",
+"fool",
+"veggie",
+"fig",
+"high-five",
+"vibe",
+"boss",
+"bead",
+"pony",
+"puma",
+"berry",
+"bell",
+"pouch",
+"bike",
+"beef",
+"pipe",
+]
 
-def new_line():
+mnemonic = ""
 
-	random_number = randint(0,len(demo_list) - 1)
+the_input = raw_input("Enter the number you'd like to memorise \n")
 
-	try:
-		pre_line = demo_list[random_number - 1]
-	except IndexError:
-		pre_line ="START OF LIST"
+while len(the_input) > 1:
 
-	try:
-		post_line = demo_list[random_number + 1]
-	except IndexError:
-		post_line ="END OF LIST"
+	next_number = int(the_input[0:2])
+	
+	next_image = pegs_list[next_number]
+	
+	the_input = the_input[2:]
+	
+	mnemonic += " " + next_image
 
-	blank_filler = "-" * len((demo_list[random_number]))
+if len(the_input) == 1:
 
-	print "\n"
-	print pre_line
-	print blank_filler
-	print post_line
-	print "\n"
+	next_number = int(the_input[0:1])
+	
+	next_image = single_digit_peg_list[next_number]
+	
+	mnemonic += " " + next_image
 
-	get_another = raw_input("another? press 'y' for yes or 'q' to quit \n")
+else:
 
-	if get_another == "y":
-		new_line()
-	elif get_another == "q":
-		quit()
+	pass
 
-new_line()
+print mnemonic
